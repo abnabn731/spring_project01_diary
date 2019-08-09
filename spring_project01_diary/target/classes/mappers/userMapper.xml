@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 구분되도록 네임스페이스 기재 -->
+<mapper namespace="user">
+
+	<insert id="insertUser">
+		insert into users
+		values (#{userid}, #{passwd}, #{name}, 1, #{authority})
+	</insert>
+	
+	<!-- 스프링시큐리티에서 기본적으로 username과 password를 검사하므로
+		 users테이블에는 userid,passwd를 username, password로서
+		 가져온다는 의미로 as를 사용한 것
+		 map에 담으면 테이블의 필드가 key로 쓰이는데 'as username'이므로
+		 USERNAME이 key로 쓰일것 (자바코드에서 필드명은 대문자)-->
+	<select id="selectUser" resultType="java.util.Map">
+		select userid as username, passwd as password,
+			name,enabled,authority
+		from users
+		where userid=#{userid}
+	</select>
+	
+</mapper>
