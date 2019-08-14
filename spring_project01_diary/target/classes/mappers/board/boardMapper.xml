@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+
+<!-- 글 쓰기 -->	
+<!-- bno는 auto_increment, 날짜, 북마크는 기본값이 설정돼있다.-->
+	<insert id="insert">
+		insert into board (id,title,content) values
+		(#{id},#{title},#{content})
+	</insert>
+
+
+<!-- 레코드 갯수 계산 -->	
+	<select id="countArticle" resultType="int">
+		select count(*) from board b,users u	
+		<include refid="search" />
+	</select>
+	
+	<!-- 검색 -->	
+	<sql id="search">
+		<choose>
+			<when test="keyword == '' ">
+				where b.id= u.userid
+				    			
+			</when>
+			<otherwise>
+				where b.id=u.userid 
+				    and title like #{keyword}
+				        	
+			</otherwise>
+		</choose>
+	</sql>
+	
+	
+<!-- 글 목록 -->
+	<select id="listAll" resultType="com.example.diary.model.board.dto.BoardDTO">
+	
+		<include refid="paging_header" />
+		
+			select bno,title,regdate,bookmark					
+			from board b, users u
+		
+			<include refid="search" />
+		
+			order by regdate desc   
+		
+		<include refid="paging_footer" />
+	
+	</select>
+	
+	<sql id="paging_header">
+		select R1.* FROM(   	
+	</sql>
+	
+	<sql id="paging_footer">
+		 ) R1
+	    LIMIT #{end, jdbcType=INTEGER} OFFSET #{start, jdbcType=INTEGER} 
+	</sql>
+
+
+<!-- 글 읽어오기 -->	
+	<select id="read" 
+resultType="com.example.diary.model.board.dto.BoardDTO">
+		select bno, id, title,regdate,content, bookmark
+		from board b, users u
+		where b.id=u.userid and bno=#{bno}
+	</select>
+	
+	
+<!-- 게시물 내용 수정 -->
+	<update id="update">
+		update board
+		set title=#{title}, content=#{content}
+		where bno=#{bno}
+	</update>
+	
+<!-- 글 삭제 -->
+	<delete id="delete">
+			delete from board where bno=#{bno}
+	</delete>
+	
+	</mapper>
+
+

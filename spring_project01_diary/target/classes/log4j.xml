@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.example.diary">
+	<logger name="com.example.sample.controller">
 		<level value="info" />
 	</logger>
 	

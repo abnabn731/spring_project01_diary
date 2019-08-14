@@ -5,6 +5,18 @@
 <configuration>
 
 	<typeAliases>
+	
+<typeAlias 
+type="com.example.diary.model.board.dto.BoardDTO"
+alias="BoardDto" />
+
 	</typeAliases>
 
 </configuration>
+
+
+
+
+
+
+
