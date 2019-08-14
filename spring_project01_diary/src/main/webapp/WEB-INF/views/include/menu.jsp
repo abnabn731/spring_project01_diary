@@ -2,6 +2,22 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
+<script>
+$(function() {
+    $( "#testDatepicker" ).datepicker({
+    	
+        changeMonth: true, 
+        changeYear: true,
+        nextText: '다음 달',
+        prevText: '이전 달' 
+        
+    });
+});
+
+
+</script>
+
 <div style="text-align: left;">
 
 <c:choose>
@@ -18,7 +34,12 @@
 <a href="${path}/board/list.do" >나의 기록</a>  <br>
 <a href="${path}/board/list.do" >자주 찾는 기록</a>  <br>
 <br>
-달력<br>
+
+<!-- 달력 -->
+<%@ include file="../include/calendar.jsp" %>
+
+
+<br>
 <br>
 구글 차트 <br>
 <br>

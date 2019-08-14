@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!--datapicker 사용을 위한 라이브러리  -->
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jqueryUI.js"></script>    
+<link rel="stylesheet" href="${path}/include/css/jqueryUI.css">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <%@ include file="../include/header.jsp" %>

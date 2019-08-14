@@ -23,7 +23,7 @@ import com.example.diary.service.board.Pager;
 // /WEB-INF/views/ ~ .jsp 설정하고 bean 등록해놓음
 @RequestMapping("board/*")
 public class BoardController {
-
+	
 	
 	@Inject BoardService boardService;
 	
@@ -35,6 +35,7 @@ public class BoardController {
 	//글 목록  (dao : 리스트)
 	
 	//이미지 첨부는 나중에
+	
 	
 	//글쓰기 폼으로 포워딩 
 	@RequestMapping("write.do")
