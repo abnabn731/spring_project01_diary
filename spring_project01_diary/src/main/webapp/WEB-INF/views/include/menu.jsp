@@ -40,9 +40,12 @@ $(function() {
 
 
 <br>
-<br>
-구글 차트 <br>
-<br>
+
+<!-- 구글 차트 (안녕지수 차트)-->
+나의 안녕 지수 <br>
+
+<%@ include file="../include/chart.jsp" %><br>
+<a href="${path}/chart/quest.do">오늘의 안녕지수 기록하기</a>
 
 <c:if test="${sessionScope.admin_userid == 'admin' }">
 

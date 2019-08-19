@@ -41,7 +41,6 @@ $(function(){
 
 </head>
 <body>
-<%@ include file="../include/menu.jsp" %>
 <h2>게시물 보기</h2>
 <form id="form1" name="form1" method="post"">
 	<div>제목 :  ${dto.title}

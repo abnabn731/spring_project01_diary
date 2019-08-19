@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="chart">
+
+	<insert id="insert">
+		insert into chart (figure, regdate) values (#{figure}, #{regdate}) ON DUPLICATE KEY UPDATE regdate=#{regdate}
+
+	</insert>
+
+	<select id="list" resultType="com.example.diary.model.chart.dto.ChartDTO">
+
+			select * from chart			
+	</select>
+	
+</mapper>

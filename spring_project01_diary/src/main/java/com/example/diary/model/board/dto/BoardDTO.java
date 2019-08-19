@@ -3,7 +3,7 @@ package com.example.diary.model.board.dto;
 import java.util.Date;
 
 public class BoardDTO {
-	
+
 	private int bno;
 	private String id;
 	private String title;
@@ -11,7 +11,6 @@ public class BoardDTO {
 	private Date regdate;
 	private int bookmark;
 
-	
 	public String getTitle() {
 		return title;
 	}
