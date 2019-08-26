@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="chart">
 
 	<insert id="insert">
-		insert into chart (figure, regdate) values (#{figure}, #{regdate}) ON DUPLICATE KEY UPDATE regdate=#{regdate}
+		insert into chart (id, regdate, figure) values (#{id}, #{regdate}, #{figure}) ON DUPLICATE KEY UPDATE regdate=#{regdate}
 
 	</insert>
 

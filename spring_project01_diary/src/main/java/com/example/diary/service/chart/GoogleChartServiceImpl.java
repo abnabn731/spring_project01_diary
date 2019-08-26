@@ -29,17 +29,14 @@ public class GoogleChartServiceImpl
 		JSONObject col1=new JSONObject();
 		JSONArray title=new JSONArray();
 		
-		col1.put("label", "상품명");
+		col1.put("label", "안녕지수");
 		col1.put("type", "string");
 
 		// json 배열에 json 객체 추가
 		title.add(col1);
 
 		data.put("cols", title);
-		// 여기까지가 data를 json형식으로 만든것
 		
-		//google chart에서 제시한 형식에 맞추는 작업
-				
 		//json의 rows 객체구성
 		JSONArray body=new JSONArray();
 		for(ChartDTO dto : items) {
